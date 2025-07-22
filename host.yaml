@@ -1,0 +1,133 @@
+---
+
+R1:
+    hostname: 192.168.0.52
+    groups: 
+        - cisco
+    data:
+        hostname: "BCN-ROUTER"
+        interfaces:
+            GigabitEthernet2:
+                ip: "192.168.20.1"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+            GigabitEthernet3:
+                ip: "192.168.10.1"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+        OSPF:
+            OSPF_RID: 1.1.1.1
+            OSPF_PROCESS: 1
+            ospf_networks:
+                - ip: "192.168.20.0"
+                  wildcard: "0.0.0.255"
+                  area: "0" 
+                - ip: "192.168.10.0"
+                  wildcard: "0.0.0.255"
+                  area: "0"       
+
+
+FORTIGATE:
+    hostname: 192.168.0.62
+    groups: 
+        - Fortigate
+    username: "admin"
+    password: "admin"
+    data:
+        hostname: "NYC-FW"
+        interfaces:
+            port3:
+                ip: "192.168.10.2"
+                mask: "255.255.255.0"
+                description: "CONFIGURE_WITH_NORNIR"
+            port1:
+                ip: "172.16.2.1"
+                mask: "255.255.255.0"
+                description: "CONFIGURE_WITH_NORNIR"
+        OSPF:
+            OSPF_RID: 5.5.5.5
+            OSPF_AREA: 0.0.0.0
+            ospf_networks:
+                - ip: "192.168.10.0"
+                  wildcard: "/24"
+                  area: "0.0.0.0" 
+                - ip: "172.16.2.0"
+                  wildcard: "/24"
+                  area: "0.0.0.0"   
+
+R2:
+    hostname: 192.168.0.63
+    groups:
+        - cisco
+    data: 
+        hostname: "Zurich-Router"
+        interfaces:
+            GigabitEthernet1:
+                ip: "192.168.30.1"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+        OSPF:
+            OSPF_RID: 2.2.2.2
+            OSPF_PROCESS: 1
+            ospf_networks:
+                - ip: "192.168.30.0"
+                  wildcard: "0.0.0.255"
+                  area: "1"
+
+R3:
+    hostname: 192.168.0.33
+    groups:
+        - cisco
+    data: 
+        hostname: "Mexico-ROUTER"
+        interfaces:
+            GigabitEthernet2:
+                ip: "172.16.2.2"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+            GigabitEthernet3:
+                ip: "172.16.1.1"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+            GigabitEthernet4:
+                ip: "192.168.30.2"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+        OSPF:
+            OSPF_RID: 3.3.3.3
+            OSPF_PROCESS: 1
+            ospf_networks:
+                - ip: "192.168.30.0"
+                  wildcard: "0.0.0.255"
+                  area: "1"
+                - ip: "172.16.2.0"
+                  wildcard: "0.0.0.255"
+                  area: "0"
+
+R4:
+    hostname: 192.168.0.53
+    groups:
+        - arista
+    data: 
+        hostname: "Paris-ROUTER"
+        interfaces:
+            Eth1:
+                ip: "192.168.20.2"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+            Eth3:
+                ip: "172.16.1.2"
+                mask: "255.255.255.0"
+                description: "CONFIGURE WITH NORNIR"
+        OSPF:
+            OSPF_RID: 4.4.4.4
+            OSPF_PROCESS: 1
+            OSPF_AREA: 0
+            ospf_networks:
+                - ip: "192.168.20.0"
+                  wildcard: "0.0.0.255"
+                  area: "0" 
+                - ip: "172.16.1.0"
+                  wildcard: "0.0.0.255"
+                  area: "0"           
+    

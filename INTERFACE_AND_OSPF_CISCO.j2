@@ -1,0 +1,14 @@
+hostname {{host.data['hostname']}}
+
+{% for intf_name, intf in host.data['interfaces'].items() %}
+interface {{ intf_name }}
+ip address {{intf['ip'] }} {{ intf['mask']}}
+description {{ intf['description']}}
+{% endfor %}
+
+router ospf {{host.data['OSPF']['OSPF_PROCESS']}}
+router-id {{host.data['OSPF']['OSPF_RID']}}
+
+{%for network in host['OSPF']['ospf_networks'] %}
+network {{network['ip']}} {{network['wildcard']}} area {{network['area']}}
+{% endfor %}

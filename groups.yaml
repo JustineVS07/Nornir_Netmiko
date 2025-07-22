@@ -1,0 +1,10 @@
+---
+
+cisco:
+     platform: cisco_xe
+
+Fortigate:
+    platform: fortinet
+
+arista:
+    platform: arista_eos

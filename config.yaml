@@ -1,0 +1,12 @@
+---
+inventory:
+    plugin: SimpleInventory
+    options:
+        host_file: "F:\\NETWORKING\\Automation and Programming\\VSCode\\Learning Python\\Nornir Automation\\PRACTICAS\\host.yaml"
+        group_file: "F:\\NETWORKING\\Automation and Programming\\VSCode\\Learning Python\\Nornir Automation\\PRACTICAS\\groups.yaml"
+        defaults_file: "F:\\NETWORKING\\Automation and Programming\\VSCode\\Learning Python\\Nornir Automation\\PRACTICAS\\defaults.yaml"
+
+runner:
+    plugin: threaded
+    options:
+        num_workers: 2

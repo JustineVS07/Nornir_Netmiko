@@ -3,7 +3,7 @@ from nornir_netmiko import netmiko_send_config
 from nornir_jinja2.plugins.tasks import template_file
 from nornir_utils.plugins.functions import print_result
 
-nr = InitNornir(config_file=r"F:\NETWORKING\Automation and Programming\VSCode\Learning Python\Nornir Automation\PRACTICAS\config.yaml")
+nr = InitNornir(config_file="config.yaml")
 
 #nr = nr.filter(platform= "arista_eos")
 
